@@ -1,0 +1,395 @@
+******************************************************************************
+                  TI ARM Linker PC v16.9.3                     
+******************************************************************************
+>> Linked Sat Feb 24 13:43:49 2018
+
+OUTPUT FILE NAME:   <TivaWare01.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00003f69
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  0000413a  0003bec6  R  X
+  SRAM                  20000000   00008000  00000218  00007de8  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    0000413c   0000413c    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00003e3e   00003e3e    r-x .text
+  000040ac    000040ac    0000006c   0000006c    r-- .const
+  00004118    00004118    00000024   00000024    r-- .cinit
+20000000    20000000    00000218   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    00000018   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00003e3e     
+                  0000026c    000010cc     sysctrl.obj (.text)
+                  00001338    00000b68     gpio.obj (.text)
+                  00001ea0    0000098c     uart.obj (.text)
+                  0000282c    00000824     timers.obj (.text)
+                  00003050    0000063c     can.obj (.text)
+                  0000368c    000002e4     app_gpio.obj (.text)
+                  00003970    000001e0     app_uart.obj (.text)
+                  00003b50    00000194     main.obj (.text)
+                  00003ce4    00000110     driverlib.lib : sysctl.obj (.text:SysCtlClockGet)
+                  00003df4    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00003e90    00000070                                   : autoinit.obj (.text)
+                  00003f00    00000068                                   : copy_decompress_lzss.obj (.text:decompress:lzss)
+                  00003f68    00000054                                   : boot.obj (.text)
+                  00003fbc    00000054                                   : exit.obj (.text)
+                  00004010    0000004c                                   : cpy_tbl.obj (.text)
+                  0000405c    00000018                                   : args_main.obj (.text)
+                  00004074    00000014                                   : _lock.obj (.text)
+                  00004088    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00004096    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  000040a2    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.obj (.text)
+                  000040a6    00000002                                   : mpu_init.obj (.text)
+                  000040a8    00000002                                   : startup.obj (.text)
+
+.const     0    000040ac    0000006c     
+                  000040ac    0000006c     driverlib.lib : sysctl.obj (.const:g_pui32Xtals)
+
+.cinit     0    00004118    00000024     
+                  00004118    00000011     (.cinit..data.load) [load image, compression = lzss]
+                  00004129    00000003     --HOLE-- [fill = 0]
+                  0000412c    00000008     (__TI_handler_table)
+                  00004134    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000200     --HOLE--
+
+.data      0    20000200    00000018     UNINITIALIZED
+                  20000200    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.obj (.data:$O1$$)
+                  2000020c    00000008                                   : _lock.obj (.data:$O1$$)
+                  20000214    00000004                                   : stkdepth_vars.obj (.data)
+
+MODULE SUMMARY
+
+       Module                         code    ro data   rw data
+       ------                         ----    -------   -------
+    .\
+       tm4c123gh6pm_startup_ccs.obj   12      620       0      
+       main.obj                       404     0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         416     620       0      
+                                                               
+    .\APP\
+       app_gpio.obj                   740     0         0      
+       app_uart.obj                   480     0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         1220    0         0      
+                                                               
+    .\HAL\
+       sysctrl.obj                    4300    0         0      
+       gpio.obj                       2920    0         0      
+       uart.obj                       2444    0         0      
+       timers.obj                     2084    0         0      
+       can.obj                        1596    0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         13344   0         0      
+                                                               
+    C:/ti/TivaWare_C_Series-2.1.4.178/driverlib/ccs/Debug/driverlib.lib
+       sysctl.obj                     272     108       0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         272     108       0      
+                                                               
+    C:\ti\ccsv7\tools\compiler\ti-cgt-arm_16.9.3.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.obj                  156     0         0      
+       autoinit.obj                   112     0         0      
+       copy_decompress_lzss.obj       104     0         0      
+       exit.obj                       84      0         12     
+       boot.obj                       84      0         0      
+       cpy_tbl.obj                    76      0         0      
+       _lock.obj                      20      0         8      
+       args_main.obj                  24      0         0      
+       copy_decompress_none.obj       14      0         0      
+       pre_init.obj                   4       0         0      
+       stkdepth_vars.obj              0       0         4      
+       mpu_init.obj                   2       0         0      
+       startup.obj                    2       0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         682     0         24     
+                                                               
+       Stack:                         0       0         512    
+       Linker Generated:              0       33        0      
+    +--+------------------------------+-------+---------+---------+
+       Grand Total:                   15934   761       536    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00004134 records: 1, size/record: 8, table size: 8
+	.data: load addr=00004118, load size=00000011 bytes, run addr=20000200, run size=00000018 bytes, compression=lzss
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 0000412c records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                           
+-------   ----                           
+00003fbd  C$$EXIT                        
+00001da5  GPIOPinControl                 
+00001e35  GPIOPortControlClear           
+000007c1  NVICInterruptActive            
+00000769  NVICInterruptClearPending      
+00000711  NVICInterruptDisable           
+000005a5  NVICInterruptEnable            
+00004097  ResetISR                       
+UNDEFED   SHT$$INIT_ARRAY$$Base          
+UNDEFED   SHT$$INIT_ARRAY$$Limit         
+00003ce5  SysCtlClockGet                 
+20000200  __STACK_END                    
+00000200  __STACK_SIZE                   
+20000200  __STACK_TOP                    
+00004134  __TI_CINIT_Base                
+0000413c  __TI_CINIT_Limit               
+0000412c  __TI_Handler_Table_Base        
+00004134  __TI_Handler_Table_Limit       
+00003e91  __TI_auto_init                 
+20000200  __TI_cleanup_ptr               
+00003f01  __TI_decompress_lzss           
+00004089  __TI_decompress_none           
+20000204  __TI_dtors_ptr                 
+20000208  __TI_enable_exit_profile_output
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+00000000  __TI_static_base__             
+00003df5  __aeabi_memcpy                 
+00003df5  __aeabi_memcpy4                
+00003df5  __aeabi_memcpy8                
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+000040a7  __mpu_init                     
+20000000  __stack                        
+0000405d  _args_main                     
+00003f69  _c_int00                       
+2000020c  _lock                          
+00004083  _nop                           
+0000407b  _register_lock                 
+00004075  _register_unlock               
+000040a9  _system_post_cinit             
+000040a3  _system_pre_init               
+20000210  _unlock                        
+00003fc1  abort                          
+00003121  beginInitializingCAN           
+ffffffff  binit                          
+0000359f  canRecieveData                 
+000034d5  canTransmitData                
+000002d3  clockGating                    
+00000559  clockGatingCAN                 
+0000039d  clockGatingTimers              
+000004a3  clockGatingUART                
+000033d1  configRecieveMsgObj            
+000032e7  configTransmitMsgObj           
+00004011  copy_in                        
+000038bf  digitalPinRead                 
+00003873  digitalPinWrite                
+000038e3  digitalPortRead                
+0000389b  digitalPortWrite               
+00003903  digitalReadHWMaskedPins        
+0000392b  digitalWriteHWMaskedPins       
+00002975  disableTimer                   
+00001f99  disableUART                    
+0000212d  en_dis_FIFOs                   
+000020c3  en_dis_ParityBit               
+00002531  en_dis_Recieveing              
+000024c9  en_dis_Transmission            
+0000286f  enableTimer                    
+00001ee3  enableUART                     
+00003153  endInitializingCAN             
+00003fc9  exit                           
+00000000  g_pfnVectors                   
+00003b09  getChar                        
+00003185  initAppropriateCANPins         
+00002599  initAppropriatePins            
+0000368d  initPin                        
+0000378f  initPort                       
+00003995  initUART                       
+00003b85  main                           
+20000214  main_func_sp                   
+00003df5  memcpy                         
+00001757  pinAlternateFunctionSel        
+00001c95  pinAnalogModeSelect            
+00001b27  pinCommit                      
+00001c09  pinDigitalEnable               
+00001839  pinSetPadConfig                
+000017df  portAlternateFunctionSel       
+00001d35  portAnalogModeSelect           
+00001acd  portCommit                     
+00001baf  portDigitalEnable              
+0000193d  portSetPadConfig               
+00001a53  portUnLock                     
+000016e5  readHWMaskedPins               
+000014d7  readPin                        
+000015fb  readPort                       
+00002e37  selectCountTypeA               
+00002d8b  selectCountTypeB               
+0000329b  selectIdentifierTX             
+0000226d  selectStopBits                 
+00002b8d  selectTimerAMode               
+00002ca5  selectTimerBMode               
+00002a7b  selectTimerWidth               
+00003adf  sendChar                       
+0000204f  setBAUDRate                    
+000023e1  setClockSource                 
+000021c5  setEvenOddParityBit            
+0000139f  setPinDir                      
+00001547  setPortDir                     
+00000875  setSysClock                    
+00002efb  setTimerAIntervalLoad          
+00002f9d  setTimerBIntervalLoad          
+000022f9  setWordLength                  
+00003233  transferMSGOBJinfoToInterface  
+00001653  writeHWMaskedPins              
+0000143b  writePin                       
+000015a1  writePort                      
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                           
+-------   ----                           
+00000000  __TI_static_base__             
+00000000  g_pfnVectors                   
+00000200  __STACK_SIZE                   
+000002d3  clockGating                    
+0000039d  clockGatingTimers              
+000004a3  clockGatingUART                
+00000559  clockGatingCAN                 
+000005a5  NVICInterruptEnable            
+00000711  NVICInterruptDisable           
+00000769  NVICInterruptClearPending      
+000007c1  NVICInterruptActive            
+00000875  setSysClock                    
+0000139f  setPinDir                      
+0000143b  writePin                       
+000014d7  readPin                        
+00001547  setPortDir                     
+000015a1  writePort                      
+000015fb  readPort                       
+00001653  writeHWMaskedPins              
+000016e5  readHWMaskedPins               
+00001757  pinAlternateFunctionSel        
+000017df  portAlternateFunctionSel       
+00001839  pinSetPadConfig                
+0000193d  portSetPadConfig               
+00001a53  portUnLock                     
+00001acd  portCommit                     
+00001b27  pinCommit                      
+00001baf  portDigitalEnable              
+00001c09  pinDigitalEnable               
+00001c95  pinAnalogModeSelect            
+00001d35  portAnalogModeSelect           
+00001da5  GPIOPinControl                 
+00001e35  GPIOPortControlClear           
+00001ee3  enableUART                     
+00001f99  disableUART                    
+0000204f  setBAUDRate                    
+000020c3  en_dis_ParityBit               
+0000212d  en_dis_FIFOs                   
+000021c5  setEvenOddParityBit            
+0000226d  selectStopBits                 
+000022f9  setWordLength                  
+000023e1  setClockSource                 
+000024c9  en_dis_Transmission            
+00002531  en_dis_Recieveing              
+00002599  initAppropriatePins            
+0000286f  enableTimer                    
+00002975  disableTimer                   
+00002a7b  selectTimerWidth               
+00002b8d  selectTimerAMode               
+00002ca5  selectTimerBMode               
+00002d8b  selectCountTypeB               
+00002e37  selectCountTypeA               
+00002efb  setTimerAIntervalLoad          
+00002f9d  setTimerBIntervalLoad          
+00003121  beginInitializingCAN           
+00003153  endInitializingCAN             
+00003185  initAppropriateCANPins         
+00003233  transferMSGOBJinfoToInterface  
+0000329b  selectIdentifierTX             
+000032e7  configTransmitMsgObj           
+000033d1  configRecieveMsgObj            
+000034d5  canTransmitData                
+0000359f  canRecieveData                 
+0000368d  initPin                        
+0000378f  initPort                       
+00003873  digitalPinWrite                
+0000389b  digitalPortWrite               
+000038bf  digitalPinRead                 
+000038e3  digitalPortRead                
+00003903  digitalReadHWMaskedPins        
+0000392b  digitalWriteHWMaskedPins       
+00003995  initUART                       
+00003adf  sendChar                       
+00003b09  getChar                        
+00003b85  main                           
+00003ce5  SysCtlClockGet                 
+00003df5  __aeabi_memcpy                 
+00003df5  __aeabi_memcpy4                
+00003df5  __aeabi_memcpy8                
+00003df5  memcpy                         
+00003e91  __TI_auto_init                 
+00003f01  __TI_decompress_lzss           
+00003f69  _c_int00                       
+00003fbd  C$$EXIT                        
+00003fc1  abort                          
+00003fc9  exit                           
+00004011  copy_in                        
+0000405d  _args_main                     
+00004075  _register_unlock               
+0000407b  _register_lock                 
+00004083  _nop                           
+00004089  __TI_decompress_none           
+00004097  ResetISR                       
+000040a3  _system_pre_init               
+000040a7  __mpu_init                     
+000040a9  _system_post_cinit             
+0000412c  __TI_Handler_Table_Base        
+00004134  __TI_CINIT_Base                
+00004134  __TI_Handler_Table_Limit       
+0000413c  __TI_CINIT_Limit               
+20000000  __stack                        
+20000200  __STACK_END                    
+20000200  __STACK_TOP                    
+20000200  __TI_cleanup_ptr               
+20000204  __TI_dtors_ptr                 
+20000208  __TI_enable_exit_profile_output
+2000020c  _lock                          
+20000210  _unlock                        
+20000214  main_func_sp                   
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+ffffffff  binit                          
+UNDEFED   SHT$$INIT_ARRAY$$Base          
+UNDEFED   SHT$$INIT_ARRAY$$Limit         
+
+[117 symbols]
